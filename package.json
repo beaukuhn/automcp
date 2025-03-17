@@ -1,0 +1,11 @@
+{
+  "name": "automcp",
+  "version": "1.0.0",
+  "description": "Library for autogenerating MCP server and client code based on a specified YAML schema",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Beau Kuhn",
+  "license": "MIT"
+}
