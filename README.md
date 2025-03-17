@@ -104,7 +104,7 @@ Use the test script to verify the functionality of your services:
 ./bin/test-service.sh [service-name]
 ```
 
-## Directory Structure
+## Temporary Directory Structure (will be improved for packaging)
 
 ```
 .
@@ -130,6 +130,7 @@ Use the test script to verify the functionality of your services:
 
 - Support for multiple programming languages
 - Integration with existing MCP solutions
+- Implement with prompts and resource mechanisms
 - Enhanced composition mechanisms for complex tool chains
 
 ## License
