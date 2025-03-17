@@ -6,6 +6,8 @@
 
 AutoMCP is a code generator for the Model Context Protocol (MCP) that automatically creates server and client code based on YAML service definitions.
 
+This is a work in progress. The repo contains artifacts that will be removed when finalized for packaging for npm, pypl, etc.
+
 ## Features
 
 - Generates MCP-compatible server code
