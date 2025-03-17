@@ -4,7 +4,7 @@
   <img src="AutoMCP.png" alt="AutoMCP Logo" width="500"/>
 </p>
 
-AutoMCP is a code generator for the Model Context Protocol [MCP](https://github.com/modelcontextprotocol) that automatically creates server and client code based on YAML service definitions.
+AutoMCP is a code generator for the Model Context Protocol ([MCP])(https://github.com/modelcontextprotocol) that automatically creates server and client code based on YAML service definitions.
 
 This is a work in progress. The repo contains artifacts that will be removed when finalized for packaging for npm, pypl, etc.
 
