@@ -3,7 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 <% /* Dynamically generate tool registrations based on YAML definitions */ %>
 <% Object.keys(tools).forEach(toolName => { %>
-import { handle<%= toolName.charAt(0).toUpperCase() + toolName.slice(1) %> } from "../src/custom/<%= toolName %>Handlers";
+import { handle<%= toolName.charAt(0).toUpperCase() + toolName.slice(1) %> } from "../../src/custom/<%= service.name.toLowerCase() %>/<%= toolName %>Handlers.js";
 <% }); %>
 
 // Create the MCP server
@@ -11,13 +11,17 @@ const server = new McpServer({ name: "<%= service.name %>", version: "<%= servic
 
 <% Object.keys(tools).forEach(toolName => { %>
 // Register the <%= toolName %> tool
-server.tool("<%= toolName %>", 
-  z.object({
+server.tool(
+  "<%= toolName %>", 
+  {
     <% Object.keys(tools[toolName].parameters).forEach(param => { %>
-    <%= param %>: z.number(), <% /* For simplicity; adjust per type */ %>
+    <%= param %>: z.<%= tools[toolName].parameters[param].type.toLowerCase() %>(), 
     <% }); %>
-  }),
-  handle<%= toolName.charAt(0).toUpperCase() + toolName.slice(1) %>
+  },
+  async (args) => {
+    // Call the handler function
+    return handle<%= toolName.charAt(0).toUpperCase() + toolName.slice(1) %>(args);
+  }
 );
 <% }); %>
 

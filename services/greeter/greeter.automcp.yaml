@@ -1,0 +1,15 @@
+service:
+  name: Greeter
+  version: 1.0.0
+  description: An example greeterservice for testing AutoMCP
+
+tools:
+  - name: greet
+    description: Greets a user by name
+    parameters:
+      - name: name
+        type: string
+        description: The name of the user to greet
+    returns:
+      type: string
+      description: A greeting message

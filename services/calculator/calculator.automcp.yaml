@@ -1,0 +1,32 @@
+service:
+  name: "Calculator"
+  version: "1.0.0"
+
+tools:
+  add:
+    description: "Adds two numbers."
+    parameters:
+      a:
+        type: number
+        description: "First number"
+      b:
+        type: number
+        description: "Second number"
+    response:
+      result:
+        type: number
+        description: "The sum of the two numbers."
+
+  multiply:
+    description: "Multiplies two numbers."
+    parameters:
+      a:
+        type: number
+        description: "First number"
+      b:
+        type: number
+        description: "Second number"
+    response:
+      result:
+        type: number
+        description: "The product of the two numbers."

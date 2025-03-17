@@ -103,7 +103,8 @@ elif [ "$COMMAND" == "generate" ]; then
   fi
   
   # Call the TypeScript generator with the source YAML, destination directory, and overwrite flag.
-  npx ts-node src/generator.ts "$SOURCE_YAML" "$DEST_DIR" "$OVERWRITE"
+  # Use npx ts-node with the --transpile-only flag to avoid type checking issues
+  npx ts-node --transpile-only src/generator.ts "$SOURCE_YAML" "$DEST_DIR" "$OVERWRITE"
   
   echo "Code generation complete. Check the '$DEST_DIR' directory."
   

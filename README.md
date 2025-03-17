@@ -3,18 +3,19 @@
 1. Project Setup:
 
    Requirements
-     - A config/ directory (for the root config file, e.g., mcp.config.yaml)
-     - A service/ directory for individual service definition YAML files (e.g., \*.openmpc.yaml)
-     - A generated/ directory where the auto-generated MCP server/client code and type definitions will be placed
-     - A src/custom/ directory for developer-implemented custom logic (e.g., tool handlers)
-     - A src/ directory for core code (parser, generator, IR logic)
-     - A scripts/ directory for CLI entry point scripts (e.g., automcp.sh)
-     - A tests/ directory for unit/integration tests
-     - YAML parser library
-     - fs-extra for file operations
-     - EJS (or another templating engine) for code generation templates
-     - TypeScript (or optionally implement in JavaScript if you prefer, but TypeScript offers better type safety)
-     - Tools like commander or inquirer (if you later decide to build an interactive CLI, although the initial CLI can be a shell script)
+
+   - A config/ directory (for the root config file, e.g., mcp.config.yaml)
+   - A service/ directory for individual service definition YAML files (e.g., \*.openmpc.yaml)
+   - A generated/ directory where the auto-generated MCP server/client code and type definitions will be placed
+   - A src/custom/ directory for developer-implemented custom logic (e.g., tool handlers)
+   - A src/ directory for core code (parser, generator, IR logic)
+   - A scripts/ directory for CLI entry point scripts (e.g., automcp.sh)
+   - A tests/ directory for unit/integration tests
+   - YAML parser library
+   - fs-extra for file operations
+   - EJS (or another templating engine) for code generation templates
+   - TypeScript (or optionally implement in JavaScript if you prefer, but TypeScript offers better type safety)
+   - Tools like commander or inquirer (if you later decide to build an interactive CLI, although the initial CLI can be a shell script)
 
 2. Root Configuration (mcp.config.yaml):
 

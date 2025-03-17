@@ -1,0 +1,77 @@
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+import path from "path";
+
+/**
+ * Client for the <%= service.name %> service
+ */
+export class <%= service.name %>Client {
+  private client: Client;
+  private transport: StdioClientTransport;
+  private connected: boolean = false;
+
+  constructor(options: { serverPath?: string } = {}) {
+    const serverPath = options.serverPath || path.join(__dirname, "../<%= service.name.toLowerCase() %>_server.js");
+    
+    this.transport = new StdioClientTransport({
+      command: "node",
+      args: [serverPath]
+    });
+
+    this.client = new Client(
+      {
+        name: "<%= service.name %>Client",
+        version: "<%= service.version %>"
+      },
+      {
+        capabilities: {
+          tools: {}
+        }
+      }
+    );
+  }
+
+  /**
+   * Connect to the <%= service.name %> service
+   */
+  async connect(): Promise<void> {
+    if (!this.connected) {
+      await this.client.connect(this.transport);
+      this.connected = true;
+    }
+  }
+
+  /**
+   * Disconnect from the <%= service.name %> service
+   */
+  async disconnect(): Promise<void> {
+    if (this.connected) {
+      // Client doesn't have a disconnect method in the MCP SDK
+      // Just update our connection state
+      this.connected = false;
+    }
+  }
+
+<% for (const [toolName, tool] of Object.entries(tools)) { %>
+  /**
+   * <%= tool.description %>
+   */
+  async <%= toolName %>(args: { <% for (const [paramName, param] of Object.entries(tool.parameters)) { %><%= paramName %>: <%= param.type %>; <% } %>}): Promise<string> {
+    if (!this.connected) {
+      await this.connect();
+    }
+
+    const result = await this.client.callTool({
+      name: "<%= toolName %>",
+      arguments: args
+    });
+
+    // Extract the text content from the result
+    if (Array.isArray(result.content) && result.content.length > 0 && result.content[0].type === "text") {
+      return result.content[0].text;
+    }
+    
+    return JSON.stringify(result);
+  }
+<% } %>
+} 
