@@ -11,7 +11,7 @@ export class GreeterClient {
   private connected: boolean = false;
 
   constructor(options: { serverPath?: string } = {}) {
-    const serverPath = options.serverPath || path.join(__dirname, "../greeter_server.js");
+    const serverPath = options.serverPath || path.join(process.cwd(), `dist/generated/greeter/greeter_server.js`);
     
     this.transport = new StdioClientTransport({
       command: "node",

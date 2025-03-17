@@ -11,7 +11,7 @@ export class <%= service.name %>Client {
   private connected: boolean = false;
 
   constructor(options: { serverPath?: string } = {}) {
-    const serverPath = options.serverPath || path.join(__dirname, "../<%= service.name.toLowerCase() %>_server.js");
+    const serverPath = options.serverPath || path.join(process.cwd(), `dist/generated/<%= service.name.toLowerCase() %>/<%= service.name.toLowerCase() %>_server.js`);
     
     this.transport = new StdioClientTransport({
       command: "node",

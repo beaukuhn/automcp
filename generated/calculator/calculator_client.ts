@@ -11,7 +11,7 @@ export class CalculatorClient {
   private connected: boolean = false;
 
   constructor(options: { serverPath?: string } = {}) {
-    const serverPath = options.serverPath || path.join(__dirname, "../calculator_server.js");
+    const serverPath = options.serverPath || path.join(process.cwd(), `dist/generated/calculator/calculator_server.js`);
     
     this.transport = new StdioClientTransport({
       command: "node",
