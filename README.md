@@ -2,7 +2,7 @@
 
 1. Project Setup:
 
-   - Create a new project with a directory structure that includes:
+   - Requirements
      • A config/ directory (for the root config file, e.g., mcp.config.yaml)
      • A service/ directory for individual service definition YAML files (e.g., \*.openmpc.yaml)
      • A generated/ directory where the auto-generated MCP server/client code and type definitions will be placed
@@ -10,7 +10,6 @@
      • A src/ directory for core code (parser, generator, IR logic)
      • A scripts/ directory for CLI entry point scripts (e.g., automcp.sh)
      • A tests/ directory for unit/integration tests
-   - Initialize the project (using npm or your preferred package manager) and install necessary libraries:
      • YAML parser library
      • fs-extra for file operations
      • EJS (or another templating engine) for code generation templates
