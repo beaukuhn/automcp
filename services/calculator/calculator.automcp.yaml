@@ -30,3 +30,5 @@ tools:
       result:
         type: number
         description: "The product of the two numbers."
+
+  prompts:
