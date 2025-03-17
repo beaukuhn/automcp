@@ -133,6 +133,7 @@ Use the test script to verify the functionality of your services:
 ## Future Plans
 
 - Support for multiple programming languages
+- Add custom typing so schemas do not drift from generated code
 - Integration with existing MCP solutions
 - Implement with prompts and resource mechanisms
 - Enhanced composition mechanisms for complex tool chains
