@@ -8,7 +8,7 @@ AutoMCP is a code generator for the [Model Context Protocol](https://github.com/
 
 This is a work in progress. The repo contains artifacts that will be removed when finalized for packaging for npm, pypl, etc.
 
-
+Please refer to [MCP Agent](https://github.com/lastmile-ai/mcp-agent) to have an idea of how you could use this in agentic workflows.
 
 ## Features
 
