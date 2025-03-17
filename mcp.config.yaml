@@ -1,10 +1,10 @@
 project:
-  name: "test"
+  name: "MyMCPProject"
   version: "1.0.0"
   defaultLanguage: "typescript"
   defaultTransport: "stdio"
 
-source: "service/**/*.openmpc.yaml"
+source: "services/**/*.automcp.yaml"
 
 generates:
   "generated/":

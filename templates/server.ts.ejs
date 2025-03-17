@@ -1,0 +1,28 @@
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+<% /* Dynamically generate tool registrations based on YAML definitions */ %>
+<% Object.keys(tools).forEach(toolName => { %>
+import { handle<%= toolName.charAt(0).toUpperCase() + toolName.slice(1) %> } from "../src/custom/<%= toolName %>Handlers";
+<% }); %>
+
+// Create the MCP server
+const server = new McpServer({ name: "<%= service.name %>", version: "<%= service.version %>" });
+
+<% Object.keys(tools).forEach(toolName => { %>
+// Register the <%= toolName %> tool
+server.tool("<%= toolName %>", 
+  z.object({
+    <% Object.keys(tools[toolName].parameters).forEach(param => { %>
+    <%= param %>: z.number(), <% /* For simplicity; adjust per type */ %>
+    <% }); %>
+  }),
+  handle<%= toolName.charAt(0).toUpperCase() + toolName.slice(1) %>
+);
+<% }); %>
+
+// Set up the transport and start the MCP server
+const transport = new StdioServerTransport();
+server.connect(transport).then(() => {
+  console.log("MCP Server is running.");
+});
