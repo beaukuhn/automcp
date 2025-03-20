@@ -31,4 +31,15 @@ tools:
         type: number
         description: "The product of the two numbers."
 
-  prompts:
+resources:
+
+prompts:
+  name: "calculator"
+  description: "A calculator that can add and multiply numbers."
+  parameters:
+    a:
+      type: number
+      description: "First number"
+    b:
+      type: number
+      description: "Second number"
