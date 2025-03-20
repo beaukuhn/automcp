@@ -4,7 +4,11 @@
   <img src="AutoMCP.png" alt="AutoMCP Logo" width="500"/>
 </p>
 
-AutoMCP is a code generator for the Model Context Protocol (MCP) that automatically creates server and client code based on YAML service definitions.
+AutoMCP is a code generator for the [Model Context Protocol](https://github.com/modelcontextprotocol) that automatically creates server and client code based on YAML service definitions.
+
+This is a work in progress. The repo contains artifacts that will be removed when finalized for packaging for npm, pypl, etc.
+
+Please refer to [MCP Agent](https://github.com/lastmile-ai/mcp-agent) to have an idea of how you could use this in agentic workflows.
 
 ## Features
 
@@ -104,7 +108,7 @@ Use the test script to verify the functionality of your services:
 ./bin/test-service.sh [service-name]
 ```
 
-## Directory Structure
+## Temporary Directory Structure (will be improved for packaging)
 
 ```
 .
@@ -129,7 +133,9 @@ Use the test script to verify the functionality of your services:
 ## Future Plans
 
 - Support for multiple programming languages
+- Add custom typing so schemas do not drift from generated code
 - Integration with existing MCP solutions
+- Implement with prompts and resource mechanisms
 - Enhanced composition mechanisms for complex tool chains
 
 ## License
